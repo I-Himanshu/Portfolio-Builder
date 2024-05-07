@@ -47,9 +47,9 @@ const Dashboard = () => {
                     <p className="text-gray-600">
                         Welcome to our Portfolio Designing Tool! Create a stunning portfolio by providing your details, and we will craft a beautiful portfolio hosted on our domain.
                     </p>
-                    <button className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-full mt-4">
+                    <a href="/create" className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-full mt-4">
                         Create Portfolio
-                    </button>
+                    </a>
                 </section>
 
                 {/* Data Section with Skeleton Loading Effect */}
