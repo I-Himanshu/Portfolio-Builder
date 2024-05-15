@@ -15,7 +15,14 @@ const FormLayout = ({
     profile
 }) => {
     const errorRef = useRef(null);
-    const [previewInMobile, setPreviewInMobile] = useState(false);
+    const [previewInMobile, setPreviewInMobile] = useState(true);
+
+    // if screen size is less than 768px, show preview in mobile
+    useEffect(() => {
+        if (window.innerWidth < 768) {
+            setPreviewInMobile(false);
+        }
+    }, []);
 
     useEffect(() => {
         if (error && errorRef.current && error.length > 0) {
@@ -41,7 +48,7 @@ const FormLayout = ({
                 <div className='flex gap-2'>
                     <div className='min-w-[40vw] max-w-full w-full'>{children}</div>
                     {previewInMobile && (
-                        <div className='min-w-[40vw] absolute md:relative h-full flex'>
+                        <div className='min-w-[40vw] absolute w-screen md:w-full md:relative h-full flex flex-col'>
                             <Preview profile={profile} />
                         </div>
                     )}
@@ -51,8 +58,9 @@ const FormLayout = ({
                     <button className={"bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded mr-2 " + (progressPercentage > 0 ? '' : 'hidden')} onClick={onPrevious}>
                         Previous
                     </button>
-                    {progressPercentage === 100 ? (
-                        <button className="bg-accent-500 hover:bg-accent-600 text-white px-4 py-2 rounded" onClick={onSubmit}>
+                    {
+                    progressPercentage === 100 ? (
+                        profile.type && profile.type === 'portfolio' && <button className="bg-accent-500 hover:bg-accent-600 text-white px-4 py-2 rounded" onClick={onSubmit}>
                             Submit
                         </button>
                     ) : (

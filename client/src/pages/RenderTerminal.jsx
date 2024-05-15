@@ -4,7 +4,7 @@ import { getProfile } from '../utils/api';
 import Terminal from '../TERMINAL/Terminal';
 
 const RenderTerminal = () => {
-    const { username } = useParams();
+    let { username } = useParams();
     // now call the getProfile with username and set the profile
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
@@ -13,6 +13,10 @@ const RenderTerminal = () => {
     const [error, setError] = useState(null);
     const [terminalOpen, setTerminalOpen] = useState(true);
     useEffect(() => {
+        // if username starts with @ remove it
+        if (username.startsWith('@')) {
+            username = username.substring(1);
+        }
         getProfile(username).then((data) => {
             if (data.status === 200) {
                 setProfile(data);

@@ -8,13 +8,31 @@ import EducationCertifications from '../FORMS/EducationCertifications';
 import InterestsGoals from '../FORMS/InterestsGoals';
 import FinalPage from '../FORMS/FinalPage';
 import { createProfile } from '../utils/api';
+import ChooseType from '../FORMS/ChooseType';
+import SetDetailsFromResume from '../FORMS/SetDetailsFromResume';
 
 const Create = () => {
     const [currentStep, setCurrentStep] = useState(1);
     const [error, setError] = useState('');
     const { profile, setProfile } = useContext(ProfileContext);
     const [portfolioUrl, setPortfolioUrl] = useState('');
-    const FORMS = [{
+    const FORMS = [
+        {
+            title: "Choose What You want to build?",
+            component: ChooseType,
+            checkValidity: ()=>{
+                return ''
+            }
+        },
+        {
+            title: "Fill Details From Previous Resume",
+            component: SetDetailsFromResume,
+            checkValidity: ()=>{
+                return ''
+            }
+        }
+        ,
+        {
         title: 'Basic Details',
         component: BasicFormDetails,
         checkValidity: () => {

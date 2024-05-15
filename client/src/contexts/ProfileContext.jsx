@@ -12,6 +12,8 @@ const ProfileContextProvider = ({ children }) => {
         location: '',
         username: '',
         about: '',
+        phone: "",
+        type: "resume", // resume
         social: {
             github: '',
             linkedin: '',
@@ -60,9 +62,9 @@ const ProfileContextProvider = ({ children }) => {
         }],
 
         // Personal Details
-        learningGoals: ["Jira"],
-        hobbies: ["Cricket"],
-        interests: ["Reading", "Writing", "Coding"],
+        learningGoals: [],
+        hobbies: [],
+        interests: [],
     })
 
     useEffect(() => {

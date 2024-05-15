@@ -7,6 +7,7 @@ import RenderTerminal from './pages/RenderTerminal';
 import Users from './pages/Users';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
+import DownloadResumePage from './pages/DownloadResumePage';
 
 
 
@@ -15,7 +16,11 @@ function App() {
   return (
     <Router>
           <Routes>
-
+          <Route path="/download-my-resume" element={
+                <ProfileContextProvider>
+                  <DownloadResumePage />
+                </ProfileContextProvider>
+              } />
             <Route path="/" element={<Layout />}>
               <Route index element={<Dashboard />} />
               <Route path="/dashboard" element={<Dashboard />} />
@@ -25,6 +30,8 @@ function App() {
                   <Create />
                 </ProfileContextProvider>
               } />
+              
+
 
             </Route>
             <Route path='/t/:username' element={<RenderTerminal />} />

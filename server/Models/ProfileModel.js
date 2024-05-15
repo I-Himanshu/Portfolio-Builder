@@ -38,11 +38,11 @@ const profileSchema = new mongoose.Schema({
     {
       name: {
         type: String,
-        required: true
+        required: false
       },
       description: {
         type: String,
-        required: true
+        required: false
       },
       url: {
         type: String,
@@ -50,7 +50,7 @@ const profileSchema = new mongoose.Schema({
       },
       technologies: {
         type: [String],
-        required: true
+        required: false
       },
       github: {
         type: String,
@@ -61,42 +61,42 @@ const profileSchema = new mongoose.Schema({
   skills: {
     languages: {
       type: [String],
-      required: true
+      required: false
     },
     frameworks: {
       type: [String],
-      required: true
+      required: false
     },
     databases: {
       type: [String],
-      required: true
+      required: false
     },
     tools: {
       type: [String],
-      required: true
+      required: false
     }
   },
   languages: {
     type: [String],
-    required: true
+    required: false
   },
   experience: [
     {
       company: {
         type: String,
-        required: true
+        required: false
       },
       position: {
         type: String,
-        required: true
+        required: false
       },
       period: {
         type: String,
-        required: true
+        required: false
       },
       description: {
         type: String,
-        required: true
+        required: false
       }
     }
   ],
@@ -104,19 +104,19 @@ const profileSchema = new mongoose.Schema({
     {
       institution: {
         type: String,
-        required: true
+        required: false
       },
       degree: {
         type: String,
-        required: true
+        required: false
       },
       duration: {
         type: String,
-        required: true
+        required: false
       },
       grade: {
         type: String,
-        required: true
+        required: false
       }
     }
   ],
@@ -124,19 +124,19 @@ const profileSchema = new mongoose.Schema({
     {
       title: {
         type: String,
-        required: true
+        required: false
       },
       issuer: {
         type: String,
-        required: true
+        required: false
       },
       year: {
         type: String,
-        required: true
+        required: false
       },
       link: {
         type: String,
-        required: true
+        required: false
       }
     }
   ],

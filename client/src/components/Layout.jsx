@@ -31,7 +31,7 @@ function LayOut() {
             )}
           </button>
           <h1 className="text-2xl font-bold">
-            Portfolio
+            Portrev
           </h1>
         </div>
         <Outlet />
