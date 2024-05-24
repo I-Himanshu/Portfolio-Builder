@@ -16,6 +16,9 @@ const Home = () => {
           >
             Get Started
           </a>
+          <a href="/resume-review" className="text-white text-sm mt-4">
+            Get Your Resume Reviewed
+          </a>
         </div>
 
         {/* Feature sections */}

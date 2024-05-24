@@ -1,21 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SideNav = ({ isMenuOpen,
     setIsMenuOpen
  }) => {
     const currentPath = window.location.pathname;
-    const NAVIGATION_LINKS = [
-        {
-            title: 'Home',
-            icon: 'fa fa-home',
-            link: '/'
-        },
-        {
-            title: 'Dashboard',
-            icon: 'fa fa-chart-line',
-            link: '/dashboard',
-        }
-    ];
+    const [NAVIGATION_LINKS, setNAVIGATION_LINKS] = useState([]);
+    
+    // Everytime the component mounts, we will set the navigation links
+    useEffect(() => {
+        setNAVIGATION_LINKS( [
+            {
+                title: 'Home',
+                icon: 'fa fa-home',
+                link: '/'
+            },
+            {
+                title: 'Resume Review',
+                icon: 'fa fa-file-alt',
+                link: '/resume-review',
+            }
+        ]);
+    }, [setIsMenuOpen, isMenuOpen]);
 
     return (
         <div
@@ -36,8 +42,8 @@ const SideNav = ({ isMenuOpen,
                 <ul className="space-y-4">
                     {NAVIGATION_LINKS.map((link, index) => (
                         <li key={index}>
-                            <a
-                                href={link.link}
+                            <Link
+                                to={link.link}
                                 className={`flex items-center rounded-md p-2 transition-colors duration-200 ${
                                     currentPath==link.link ? 'bg-primary-400 text-primary-100' : 'hover:bg-primary-400 hover:text-primary-100'
                                 }`}
@@ -48,7 +54,7 @@ const SideNav = ({ isMenuOpen,
                                     isMenuOpen && <span>{link.title}</span>
                                 }
             
-                            </a>
+                            </Link>
                         </li>
                     ))}
 

@@ -8,6 +8,7 @@ import Users from './pages/Users';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import DownloadResumePage from './pages/DownloadResumePage';
+import Review from './REVIEW/Review';
 
 
 
@@ -30,9 +31,7 @@ function App() {
                   <Create />
                 </ProfileContextProvider>
               } />
-              
-
-
+              <Route path='/resume-review' element={<Review />} />
             </Route>
             <Route path='/t/:username' element={<RenderTerminal />} />
             <Route path="*" element={<h1>Not Found</h1>} />
