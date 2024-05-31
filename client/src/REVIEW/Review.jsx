@@ -3,9 +3,13 @@ import FileInput from '../components/FileInput';
 import pdfToText from "react-pdftotext";
 
 const Review = () => {
+
+
+
+
     const [file, setFile] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [progress, setProgress] = useState('');
+    const [progress, setProgress] = useState(''); 
     const [reviewResult, setReviewResult] = useState('');
     console.log(process.env.VITE_APP_API_KEY);
     const handleSubmit = async () => {
@@ -38,7 +42,7 @@ const Review = () => {
         
         ${text}
       `;
-            const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' + process.env.REACT_APP_API_KEY
+            const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' + process.env.VITE_APP_API_KEY
                 , {
                     method: 'POST',
                     headers: {
